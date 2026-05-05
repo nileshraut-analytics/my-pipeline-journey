@@ -1,4 +1,4 @@
-product,amount,reason
-apple,,invalid amount
-banana,abc,invalid amount
-,40,missing product
+,product,amount
+3,apple,
+4,banana,
+5,,40.0
