@@ -7,6 +7,7 @@ def load_data(filepath):
 
 def validate_data(df):
     df["amount"] = pd.to_numeric(df["amount"],errors="coerce")
+    df["product"] = df["product"].str.strip().str.lower()
     bad_rows = df[df.isnull().any(axis = 1)].copy()
     clean_rows = df.dropna().copy()
     print(f"loaded {len(bad_rows)} rows as Bad Data from Raw Data Source")
@@ -31,7 +32,6 @@ def errors_log(bad_rows):
     print(f"Updating Data to Dedicted CSV File")
     return bad_rows.to_csv("errors_log.csv", index=False)
 
-    
 def run_pipeline(filepath):
     df = load_data(filepath)
     bad_rows, clean_rows = validate_data(df)

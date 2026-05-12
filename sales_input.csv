@@ -1,8 +1,16 @@
 product,amount
-apple,100
-banana,50
-apple,30
-apple,
-banana,abc
-,40
-orange,60
+apple,150
+BANANA,80
+ Orange ,60
+apple,200
+banana,
+,90
+Apple,120
+ORANGE,abc
+mango,50
+ MANGO,70
+banana,30
+apple,None
+,
+cherry,200
+CHERRY,150
