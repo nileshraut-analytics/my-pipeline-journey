@@ -1,10 +1,15 @@
 import pandas as pd
+import glob
 
-jan_df = pd.read_csv("sales_january.csv")
-feb_df = pd.read_csv("sales_february.csv")
-mar_df = pd.read_csv("sales_march.csv")
+files = glob.glob("sales_*.csv")
+all_dfs = []
+for file in files:
+    df = pd.read_csv(file)
+    all_dfs.append(df)
 
-final_df = pd.concat([jan_df, feb_df, mar_df]).reset_index(drop=True)
+final_df = pd.concat(all_dfs).reset_index(drop=True)
 
 print(final_df)
 print(final_df.shape)
+
+
