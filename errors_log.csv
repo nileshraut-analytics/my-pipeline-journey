@@ -1,8 +1,1 @@
-product,amount
-banana,
-banana,
-,90.0
-orange,
-apple,
-,
-apple,
+id,product,city,amount
