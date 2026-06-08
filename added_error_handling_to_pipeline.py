@@ -1,21 +1,23 @@
 import psycopg2
 import pandas as pd
+from config import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD
 
 
 def load_data():
     try:
         conn = psycopg2.connect(
-        host = "localhost",
-        database = "Practice_database",
-        user = "postgres",
-        password = "Nilesh0424"
+        host = DB_HOST,
+        database = DB_NAME,
+        user = DB_USER,
+        password = DB_PASSWORD
     )
         
-        query = "SELECT * FROM sales"
+        query = "SELECT * FROM amazon_sales"
         df = pd.read_sql(query, conn)
         print(f"[LOAD]  Loaded {len(df)} rows from postgreSQL\n")
         return df
     except Exception as e:
+        print(f"[LOAD]  failed to load data from PostgreSQL")
         print(f"Error : {e}")
         
 def validate_data(df):
