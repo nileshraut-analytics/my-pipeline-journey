@@ -2,6 +2,7 @@ import psycopg2
 import pandas as pd
 from config import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD
 from datetime import datetime
+from sqlalchemy import create_engine
 
 def get_timestamp():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -44,8 +45,15 @@ def aggregate_data(clean_rows):
 
 def clean_output(final_df):
     print(f"{get_timestamp()} [OUTPUT] Saved aggregated data to new_output.csv\n")
-    return final_df.to_csv("new_output.csv", index=False)
-
+    final_df.to_csv("new_output.csv", index=False)
+    engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}")
+    final_df.to_sql(
+        "aggregated_sales",
+        engine,
+        if_exists = "append",
+        index = False
+    )
+    
 def errors_log(bad_rows):
     print(f"{get_timestamp()} [OUTPUT] Saved bad rows to errors_log.csv\n")
     return bad_rows.to_csv("errors_log.csv", index=False)
