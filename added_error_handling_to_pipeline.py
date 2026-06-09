@@ -1,7 +1,10 @@
 import psycopg2
 import pandas as pd
 from config import DB_HOST, DB_NAME, DB_USER, DB_PASSWORD
+from datetime import datetime
 
+def get_timestamp():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 def load_data():
     try:
@@ -14,7 +17,7 @@ def load_data():
         
         query = "SELECT * FROM amazon_sales"
         df = pd.read_sql(query, conn)
-        print(f"[LOAD]  Loaded {len(df)} rows from postgreSQL\n")
+        print(f"{get_timestamp()} [LOAD]  Loaded {len(df)} rows from postgreSQL\n")
         return df
     except Exception as e:
         print(f"[LOAD]  failed to load data from PostgreSQL")
@@ -25,8 +28,8 @@ def validate_data(df):
     df["product"] = df["product"].str.strip().str.lower()
     bad_rows = df[df.isnull().any(axis = 1)].copy()
     clean_rows = df.dropna().copy()
-    print(f"[VALIDATE]  found {len(bad_rows)} bad rows")
-    print(f"[VALIDATE]  found {len(clean_rows)} clean rows\n")
+    print(f"{get_timestamp()} [VALIDATE]  found {len(bad_rows)} bad rows")
+    print(f"{get_timestamp()} [VALIDATE]  found {len(clean_rows)} clean rows\n")
     return bad_rows, clean_rows
 
 def aggregate_data(clean_rows):
@@ -36,15 +39,15 @@ def aggregate_data(clean_rows):
         max = "max",
         min = "min"
     ).reset_index()
-    print(f"[AGGREGATE] Aggregated {len(final_df)} products from {len(clean_rows)} rows\n")
+    print(f"{get_timestamp()} [AGGREGATE] Aggregated {len(final_df)} products from {len(clean_rows)} rows\n")
     return final_df
 
 def clean_output(final_df):
-    print(f"[OUTPUT] Saved aggregated data to new_output.csv\n")
+    print(f"{get_timestamp()} [OUTPUT] Saved aggregated data to new_output.csv\n")
     return final_df.to_csv("new_output.csv", index=False)
 
 def errors_log(bad_rows):
-    print(f"[OUTPUT] Saved bad rows to errors_log.csv\n")
+    print(f"{get_timestamp()} [OUTPUT] Saved bad rows to errors_log.csv\n")
     return bad_rows.to_csv("errors_log.csv", index=False)
 
 def run_pipeline():
@@ -57,6 +60,6 @@ def run_pipeline():
     final_df = aggregate_data(clean_rows)
     clean_output(final_df)
     errors_log(bad_rows)
-    print("[PIPELINE] Completed successfully!")
+    print(f"{get_timestamp()} [PIPELINE] Completed successfully!")
 
 run_pipeline()
