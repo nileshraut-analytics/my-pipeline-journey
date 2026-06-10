@@ -46,13 +46,19 @@ def aggregate_data(clean_rows):
 def clean_output(final_df):
     print(f"{get_timestamp()} [OUTPUT] Saved aggregated data to new_output.csv\n")
     final_df.to_csv("new_output.csv", index=False)
-    engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}")
-    final_df.to_sql(
-        "aggregated_sales",
-        engine,
-        if_exists = "append",
-        index = False
-    )
+
+    try:
+        engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}")
+        final_df.to_sql(
+            "aggregated_sales",
+            engine,
+            if_exists = "replace",
+            index = False
+        )
+        print(f"{get_timestamp()} [DB] Loaded {len(final_df)} rows into aggregated_sales\n")
+    except Exception as e:
+        print(f"{get_timestamp()} [DB] Failed to load aggregated data.")
+        print(f"Error: {e}")
     
 def errors_log(bad_rows):
     print(f"{get_timestamp()} [OUTPUT] Saved bad rows to errors_log.csv\n")
