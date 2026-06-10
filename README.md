@@ -1,42 +1,81 @@
 # My Pipeline Journey 🚀
 
-A production-grade Python data pipeline built from scratch — evolving from pure Python to a modular Pandas-powered pipeline.
+A hands-on Data Engineering project documenting my journey from basic Python scripts to a PostgreSQL-powered ETL pipeline.
 
-## What it does
-- Reads raw sales data from a CSV file
-- Validates and cleans dirty data (missing values, invalid types)
-- Aggregates sales by product (count, total, revenue, max, min)
-- Saves clean results to output CSV
-- Logs all bad records to a separate error log
+## What It Does
+
+* Extracts sales data from PostgreSQL
+* Validates and cleans dirty records
+* Separates bad records into an error log
+* Aggregates sales metrics by product
+* Exports aggregated results to CSV
+* Loads aggregated results back into PostgreSQL
 
 ## Pipeline Flow
-Input (CSV) → Validation → Aggregation → Output (CSV) + Error Log
 
-## Evolution
-| Version | Approach | File |
-|---|---|---|
-| v1 — Pure Python | Manual loops, dicts, file handling | day1.py - day5.py |
-| v2 — Pandas | Optimised with Pandas DataFrame | day12.py - day14.py |
-| v3 — Modular | Clean functions, reusable pipeline | pipeline.py |
+PostgreSQL (amazon_sales)
+↓
+Load Data
+↓
+Validate Data
+↓
+Separate Bad Records
+↓
+Aggregate Product Sales
+↓
+Export Results (CSV)
+↓
+Load Results to PostgreSQL (aggregated_sales)
 
-## Modular Pipeline (Final Version)
-```python
-run_pipeline("sales_input.csv")
-```
-One function call runs the entire pipeline end to end.
+## Current Features
 
-## Functions
-- `load_data()` — reads CSV into DataFrame
-- `validate_data()` — separates clean and bad records
-- `aggregate_data()` — groups and aggregates by product
-- `clean_output()` — saves results to CSV
-- `errors_log()` — saves bad records to CSV
+✅ PostgreSQL Integration
 
-## Tech Used
-- Python 3
-- Pandas
-- Git/GitHub
+✅ Data Validation
 
-## Built by
-Nilesh Raut — Aspiring Data Engineer
-📂 [GitHub](https://github.com/nileshraut-analytics/my-pipeline-journey)
+✅ Error Logging
+
+✅ Product-Level Aggregation
+
+✅ CSV Export
+
+✅ PostgreSQL Output Tables
+
+✅ Timestamped Pipeline Logs
+
+✅ Basic Error Handling
+
+## Project Evolution
+
+| Version | Focus            | Description                                |
+| ------- | ---------------- | ------------------------------------------ |
+| v1      | Pure Python      | File handling, loops, dictionaries         |
+| v2      | Pandas           | Data cleaning and aggregation              |
+| v3      | Modular Pipeline | Reusable functions and structured workflow |
+| v4      | PostgreSQL ETL   | Database extraction and loading            |
+| v5      | Error Handling   | Database logging and failure handling      |
+
+## Core Functions
+
+* `load_data()` — Extract data from PostgreSQL
+* `validate_data()` — Separate clean and bad records
+* `aggregate_data()` — Calculate product metrics
+* `clean_output()` — Save CSV and load PostgreSQL output
+* `errors_log()` — Save invalid records
+* `run_pipeline()` — Execute the complete ETL workflow
+
+## Tech Stack
+
+* Python
+* Pandas
+* PostgreSQL
+* SQLAlchemy
+* psycopg2
+* Git
+* GitHub
+
+## Learning Goal
+
+This repository documents my progression toward becoming a Data Engineer by continuously improving a single pipeline and gradually introducing more realistic ETL practices.
+
+Built by Nilesh Raut
