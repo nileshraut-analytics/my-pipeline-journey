@@ -1,0 +1,5 @@
+metric,value
+total_rows,500
+bad_rows,30
+clean_rows,470
+unique_products,12
