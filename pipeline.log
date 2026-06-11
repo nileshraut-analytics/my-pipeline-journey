@@ -1,0 +1,28 @@
+
+2026-06-11 21:10:05,909 [INFO] [LOAD]  Loaded 500 rows from PostgreSQL
+2026-06-11 21:10:05,938 [INFO] [VALIDATE]  found 30 bad rows
+2026-06-11 21:10:05,939 [INFO] [VALIDATE]  found 470 clean rows
+2026-06-11 21:10:05,958 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-06-11 21:10:05,959 [INFO] [OUTPUT] Saved aggregated data to new_output.csv
+2026-06-11 21:10:06,375 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-06-11 21:10:06,375 [INFO] [OUTPUT] Saved bad rows to errors_log.csv
+2026-06-11 21:10:06,381 [INFO] [PIPELINE] Completed successfully!
+2026-06-11 20:55:07,598 [INFO] [LOAD]  Loaded 500 rows from PostgreSQL2026-06-11 21:19:45,481 [INFO] [LOAD]  Loaded 500 rows from PostgreSQL
+2026-06-11 21:19:45,511 [INFO] [VALIDATE]  found 30 bad rows
+2026-06-11 21:19:45,511 [INFO] [VALIDATE]  found 470 clean rows
+2026-06-11 21:19:45,531 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-06-11 21:19:45,532 [INFO] [OUTPUT] Saved aggregated data to new_output.csv
+2026-06-11 21:19:45,930 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-06-11 21:19:45,931 [INFO] [OUTPUT] Saved bad rows to errors_log.csv
+2026-06-11 21:19:45,936 [INFO] [REPORT] Saved data_quality_report.csv
+2026-06-11 21:19:45,937 [INFO] [PIPELINE] Completed successfully!
+2026-06-11 21:21:45,145 [INFO] [LOAD]  Loaded 500 rows from PostgreSQL
+2026-06-11 21:21:45,175 [INFO] [VALIDATE]  found 30 bad rows
+2026-06-11 21:21:45,175 [INFO] [VALIDATE]  found 470 clean rows
+2026-06-11 21:21:45,193 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-06-11 21:21:45,193 [INFO] [OUTPUT] Saved aggregated data to new_output.csv
+2026-06-11 21:21:45,577 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-06-11 21:21:45,578 [INFO] [OUTPUT] Saved bad rows to errors_log.csv
+2026-06-11 21:21:45,584 [INFO] [REPORT] Saved data_quality_report.csv
+2026-06-11 21:21:45,584 [INFO] [PIPELINE] Completed successfully!
+2026-06-11 21:21:45,585 [INFO] [PIPELINE] Total execution time: 0.59 seconds
