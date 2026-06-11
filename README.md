@@ -1,4 +1,4 @@
-# My Pipeline Journey 🚀
+# My Pipeline Journey 
 
 A hands-on Data Engineering project documenting my journey from basic Python scripts to a PostgreSQL-powered ETL pipeline.
 
@@ -180,4 +180,4 @@ Instead of building many disconnected projects, this repository focuses on evolv
 ## Built By
 
 **Nilesh Raut**
-Aspiring Data Engineer 🚀
+Aspiring Data Engineer
