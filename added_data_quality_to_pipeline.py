@@ -12,6 +12,10 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s"
 )
 
+
+def get_timestamp():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 def data_quality_report(df, bad_rows, clean_rows, final_df):
     report_df = pd.DataFrame({
         "metric" : ["total_rows", "bad_rows", "clean_rows", "unique_products"],
@@ -21,9 +25,6 @@ def data_quality_report(df, bad_rows, clean_rows, final_df):
     print(f"[REPORT] Saved data_quality_report.csv\n")
     logging.info(f"[REPORT] Saved data_quality_report.csv")
     return report_df
-
-def get_timestamp():
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 def load_data():
     try:
@@ -42,6 +43,7 @@ def load_data():
     except Exception as e:
         print(f"[LOAD]  failed to load data from PostgreSQL")
         print(f"Error : {e}")
+        logging.error(f"[LOAD] Failed to load data from PostgreSQL. Error: {e}")
         
 def validate_data(df):
     df["amount"] = pd.to_numeric(df["amount"],errors="coerce")
