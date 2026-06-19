@@ -22,6 +22,9 @@ df.groupBy("Department").agg(
     F.max("Salary").alias("max_salary"),
     F.min("Salary").alias("min_salary"),
     F.avg("Salary").alias("average_salary")
-).show()
+)
+df = df.withColumn("Bonus", df.Salary * 0.10)
+df.show()
 
 spark.stop()
+
