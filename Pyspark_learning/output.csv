@@ -1,0 +1,5 @@
+product,product_count,total_price,max_amount,min_amount,average_amount
+Keyboard,1,1200.0,1200,1200,1200.0
+Laptop,2,100000.0,50000,50000,50000.0
+Monitor,1,9000.0,9000,9000,9000.0
+Mouse,1,500.0,500,500,500.0
