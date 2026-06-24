@@ -1,16 +1,16 @@
 # Amazon Sales ETL Pipeline
 
-An end-to-end ETL pipeline built with **Python, Pandas, and PostgreSQL** that extracts raw sales data, validates and transforms it, aggregates product-level metrics, generates data quality reports, and loads processed results back into PostgreSQL.
+An end-to-end ETL pipeline built with **Python**, **Pandas**, and **PostgreSQL** that extracts raw sales data, validates and transforms it, aggregates product-level metrics, generates data quality reports, and loads processed results back into PostgreSQL.
 
 This project is part of my Data Engineering learning journey, where I continuously improve a single pipeline by introducing more realistic ETL practices such as modular architecture, logging, reporting, and error handling.
 
 ---
 
-# Project Overview
+# 📖 Project Overview
 
-This pipeline simulates a simplified production ETL workflow.
+This project simulates a simplified production-style ETL workflow.
 
-Instead of simply cleaning data and exporting a CSV, the project focuses on building a maintainable pipeline that includes:
+Instead of simply cleaning data and exporting a CSV, the pipeline focuses on building a maintainable workflow that includes:
 
 - Data extraction from PostgreSQL
 - Data validation and cleaning
@@ -23,13 +23,57 @@ Instead of simply cleaning data and exporting a CSV, the project focuses on buil
 
 ---
 
-# Pipeline Architecture
+# 🏗️ Pipeline Architecture
 
-> *(Insert your architecture diagram here)*
+![Pipeline Architecture](docs/images/Pipeline_architecture.png)
+
+The pipeline follows a traditional ETL workflow where raw sales data is extracted from PostgreSQL, validated and transformed, aggregated into business-ready metrics, and finally exported to multiple destinations while generating monitoring artifacts.
 
 ---
 
-# Pipeline Workflow
+# 📸 Pipeline in Action
+
+## Pipeline Execution
+
+Complete execution of the ETL pipeline from extraction to loading.
+
+![Pipeline Execution](docs/images/Terminal_output.png)
+
+---
+
+## PostgreSQL Output
+
+Aggregated sales data successfully loaded into the **aggregated_sales** table.
+
+![PostgreSQL Output](docs/images/SQL_table_aggregated_sales.png)
+
+---
+
+## Aggregated CSV Output
+
+Generated CSV containing aggregated product-level sales metrics.
+
+![Aggregated CSV](docs/images/new_output_csv.png)
+
+---
+
+## Data Quality Report
+
+Automatically generated pipeline quality report.
+
+![Data Quality Report](docs/images/data_quality_report_csv.png)
+
+---
+
+## Error Log
+
+Invalid or incomplete records identified during validation.
+
+![Error Log](docs/images/errors_log_csv.png)
+
+---
+
+# 🔄 Pipeline Workflow
 
 ```
                 PostgreSQL (amazon_sales)
@@ -48,77 +92,97 @@ Instead of simply cleaning data and exporting a CSV, the project focuses on buil
                   │
                   ▼
           Aggregated Results
-        ┌─────────┼───────────┐
-        ▼         ▼           ▼
- new_output.csv  PostgreSQL  data_quality_report.csv
-          (aggregated_sales)
+        ┌─────────┼──────────────┐
+        ▼         ▼              ▼
+ new_output.csv aggregated_sales data_quality_report.csv
+                (PostgreSQL)
 
-        pipeline.log (generated throughout)
+          pipeline.log (generated throughout)
 ```
 
 ---
 
-# Features
+# ✨ Features
 
-- Extracts sales data directly from PostgreSQL
-- Cleans and validates incoming records
-- Standardizes product names
-- Detects invalid records
-- Separates bad records into an error log
-- Aggregates sales metrics by product
-- Exports processed data to CSV
-- Loads aggregated results into PostgreSQL
-- Generates data quality reports
-- Tracks pipeline execution time
-- Maintains timestamped execution logs
+- Extract data directly from PostgreSQL
+- Validate and clean incoming records
+- Standardize product names
+- Detect invalid records
+- Separate bad records into an error log
+- Aggregate sales metrics by product
+- Export processed data to CSV
+- Load aggregated data back into PostgreSQL
+- Generate data quality reports
+- Track total pipeline execution time
+- Maintain timestamped execution logs
 - Modular ETL architecture
 
 ---
 
-# Tech Stack
+# 🛠️ Tech Stack
 
 | Technology | Purpose |
-|------------|---------|
+|------------|----------|
 | Python | Core programming language |
 | Pandas | Data transformation |
-| PostgreSQL | Source & destination database |
+| PostgreSQL | Source & Destination Database |
 | SQLAlchemy | Database loading |
 | psycopg2 | PostgreSQL connectivity |
 | Git | Version control |
-| GitHub | Project hosting |
+| GitHub | Repository hosting |
 
 ---
 
-# Project Structure
+# 📂 Project Structure
 
 ```
-project/
+my-pipeline-journey/
 
+│
 ├── main.py
 ├── extract.py
 ├── transform.py
 ├── load.py
 ├── report.py
 ├── logger.py
-├── config.py
 ├── requirements.txt
+├── README.md
+│
+├── Docs/
+│   └── Images/
+│       ├── Pipeline_architecture.png
+│       ├── Terminal_output.png
+│       ├── SQL_table_aggregated_sales.png
+│       ├── new_output_csv.png
+│       ├── data_quality_report_csv.png
+│       └── errors_log_csv.png
 │
 ├── output/
-│   ├── new_output.csv
-│   ├── errors_log.csv
-│   └── data_quality_report.csv
 │
-├── logs/
-│   └── pipeline.log
+├── Pyspark_learning/
 │
-└── README.md
+└── ...
 ```
 
 ---
 
-# Pipeline Outputs
+# 🚀 How to Run
 
-## Aggregated Sales Report
+```bash
+git clone https://github.com/nileshraut-analytics/my-pipeline-journey.git
+
+cd my-pipeline-journey
+
+pip install -r requirements.txt
+
+python main.py
+```
+
+---
+
+# 📊 Pipeline Outputs
+
+### Aggregated Sales Report
 
 **new_output.csv**
 
@@ -132,19 +196,19 @@ Contains:
 
 ---
 
-## Error Log
+### Error Log
 
 **errors_log.csv**
 
-Stores all invalid or incomplete records removed during validation.
+Contains all invalid records removed during validation.
 
 ---
 
-## Data Quality Report
+### Data Quality Report
 
 **data_quality_report.csv**
 
-Provides pipeline quality metrics including:
+Provides:
 
 - Total Rows
 - Bad Rows
@@ -153,57 +217,53 @@ Provides pipeline quality metrics including:
 
 ---
 
-## PostgreSQL Output
+### PostgreSQL Output
 
 **aggregated_sales**
 
-Stores the final aggregated dataset back into PostgreSQL.
+Stores the final aggregated dataset inside PostgreSQL.
 
 ---
 
-## Pipeline Log
+### Pipeline Log
 
 **pipeline.log**
 
-Records timestamped execution logs for every stage of the pipeline.
+Maintains timestamped logs for every stage of pipeline execution.
 
 ---
 
-# Project Evolution
+# 📈 Project Evolution
 
-This repository reflects how the pipeline evolved over time rather than being built in a single version.
+This repository documents the continuous evolution of a single ETL pipeline rather than a collection of unrelated projects.
 
 | Version | Improvement |
 |----------|-------------|
 | Version 1 | Basic Python data processing |
-| Version 2 | Pandas-based transformations |
+| Version 2 | Pandas transformations |
 | Version 3 | Modular ETL architecture |
 | Version 4 | PostgreSQL integration |
 | Version 5 | Error handling & logging |
 | Version 6 | Data quality reporting |
-| Version 7 | Production-inspired pipeline organization |
+| Version 7 | Documentation & project architecture |
 
-The objective has been to continuously improve one project by introducing concepts commonly used in real-world data engineering workflows.
+The objective has been to improve one pipeline step by step while introducing concepts commonly found in real-world data engineering workflows.
 
 ---
 
-# Core Modules
+# ⚙️ Core Modules
 
 ### extract.py
 
-Responsible for extracting data from PostgreSQL.
-
----
+Extracts raw sales data from PostgreSQL.
 
 ### transform.py
 
-Performs:
+Responsible for:
 
 - Validation
 - Cleaning
 - Aggregation
-
----
 
 ### load.py
 
@@ -211,21 +271,15 @@ Handles:
 
 - CSV export
 - PostgreSQL loading
-- Error log generation
-
----
+- Error logging
 
 ### report.py
 
-Creates pipeline quality reports.
-
----
+Generates data quality reports.
 
 ### logger.py
 
-Configures centralized logging for the pipeline.
-
----
+Configures centralized pipeline logging.
 
 ### main.py
 
@@ -233,7 +287,7 @@ Acts as the pipeline orchestrator by executing every ETL stage in sequence.
 
 ---
 
-# Future Improvements
+# 🔮 Future Improvements
 
 Planned enhancements include:
 
@@ -241,24 +295,24 @@ Planned enhancements include:
 - Docker containerization
 - Apache Airflow orchestration
 - AWS S3 integration
-- Unit testing
 - Environment variable configuration
+- Unit testing
 - CI/CD pipeline
 
 ---
 
-# Learning Goal
+# 🎯 Learning Goal
 
 Rather than building many unrelated projects, this repository focuses on continuously improving a single ETL pipeline while gradually introducing more realistic engineering practices.
 
-The goal is to strengthen my understanding of data pipelines before moving to distributed processing with PySpark, workflow orchestration with Airflow, and cloud-based data engineering.
+The goal is to build strong fundamentals before moving toward distributed processing with PySpark, workflow orchestration with Apache Airflow, and cloud-based data engineering.
 
 ---
 
-# Author
+# 👨‍💻 Author
 
 **Nilesh Raut**
 
 Aspiring Data Engineer
 
-Currently learning Python, SQL, PostgreSQL, Pandas, and PySpark while building end-to-end data engineering projects.
+Currently learning **Python, SQL, PostgreSQL, Pandas, and PySpark** while building end-to-end data engineering projects and documenting the journey through progressively improved versions of the same pipeline.
