@@ -120,3 +120,14 @@
 2026-06-12 09:04:53,974 [INFO] [REPORT] Saved data_quality_report.csv
 2026-06-12 09:04:53,974 [INFO] [PIPELINE] Completed successfully!
 2026-06-12 09:04:53,975 [INFO] [PIPELINE] Total execution time: 0.45 seconds
+2026-06-24 18:53:03,896 [INFO] NumExpr defaulting to 8 threads.
+2026-06-24 18:53:05,934 [INFO] [LOAD]  Loaded 500 rows from PostgreSQL
+2026-06-24 18:53:05,956 [INFO] [VALIDATE]  found 30 bad rows
+2026-06-24 18:53:05,957 [INFO] [VALIDATE]  found 470 clean rows
+2026-06-24 18:53:05,971 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-06-24 18:53:05,971 [INFO] [OUTPUT] Saved aggregated data to new_output.csv
+2026-06-24 18:53:06,505 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-06-24 18:53:06,505 [INFO] [OUTPUT] Saved bad rows to errors_log.csv
+2026-06-24 18:53:06,513 [INFO] [REPORT] Saved data_quality_report.csv
+2026-06-24 18:53:06,514 [INFO] [PIPELINE] Completed successfully!
+2026-06-24 18:53:06,515 [INFO] [PIPELINE] Total execution time: 0.75 seconds
