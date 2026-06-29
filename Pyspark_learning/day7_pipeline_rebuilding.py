@@ -14,4 +14,11 @@ def load_data():
         return None
     
 df = load_data()
-df.show()
+
+
+df = df.withColumn("amount", F.expr("try_cast(amount as double)"))
+df = df.withColumn("product", F.lower(F.trim(df["product"])))
+clean_rows = df.na.drop()
+bad_rows = df.subtract(clean_rows)
+clean_rows.toPandas().to_csv("clean_data.csv", index=False)
+bad_rows.toPandas().to_csv("bad_data.csv", index=False)
