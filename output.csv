@@ -1,0 +1,6 @@
+product,product_count,total_sales,max_amount,min_amount,avg_amount
+orange,1,60.0,60.0,60.0,60.0
+apple,3,470.0,200.0,120.0,156.66666666666666
+mango,2,120.0,70.0,50.0,60.0
+cherry,2,350.0,200.0,150.0,175.0
+banana,2,110.0,80.0,30.0,55.0
