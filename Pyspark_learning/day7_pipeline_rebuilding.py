@@ -22,3 +22,6 @@ clean_rows = df.na.drop()
 bad_rows = df.subtract(clean_rows)
 clean_rows.toPandas().to_csv("clean_data.csv", index=False)
 bad_rows.toPandas().to_csv("bad_data.csv", index=False)
+
+print(f"[OUTPUT] clean_data.csv : {clean_rows.count()} rows")
+print(f"[OUTPUT] bad_rows.csv : {bad_rows.count()} rows")
