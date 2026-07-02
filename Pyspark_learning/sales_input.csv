@@ -1,6 +1,16 @@
-product,region,units,price
-Laptop,North,5,50000
-Mouse,South,20,500
-Keyboard,East,15,1200
-Monitor,West,8,9000
-Laptop,South,3,50000
+order_id,product,category,amount,region,date
+1001,iPhone 14,Electronics,79999,North,2024-01-15
+1002,SAMSUNG TV,Electronics,45000,South,2024-01-16
+1003,Nike Shoes ,Footwear,4500,East,2024-01-16
+1004,iphone 14,Electronics,79999,West,2024-01-17
+1005,Levi Jeans,Apparel,2999,North,2024-01-18
+1006,NIKE SHOES,Footwear,abc,East,2024-01-18
+1007,Samsung tv,Electronics,45000,NULL,2024-01-19
+1008,NULL,Apparel,1999,South,2024-01-19
+1009,Levi Jeans,Apparel,2999,West,2024-01-20
+1010,Apple Watch,Electronics,32000,North,2024-01-20
+1011,APPLE WATCH,Electronics,NULL,South,2024-01-21
+1012,Boat Earphones,Electronics,1299,East,2024-01-21
+1013,BOAT EARPHONES,Electronics,1299,West,None
+1014,NULL,NULL,NULL,NULL,2024-01-22
+1015,nike shoes,Footwear,4500,North,2024-01-22

@@ -1,23 +1,41 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
+import logging
+from datetime import datetime
+from time import time
+
+logging.basicConfig(
+    filename="pipeline.log",
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s"
+)
+
+def get_timestamp():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 spark = SparkSession.builder.appName("Mini Pipeline").getOrCreate()
 
 def load_data():
     try:
-        df = spark.read.csv("sales_input.csv", header=True)
-        print(f"[LOAD] Loaded {df.count()} rows from CSV")
+        df = spark.read.csv("sales_input.csv", header=True, nullValue="NULL")
+        print(f"{get_timestamp()} [LOAD] Loaded {df.count()} rows from CSV")
+        logging.info(f"[LOAD] loaded {df.count()} rows from CSV")
         return df
     except Exception as e:
-        print(f"[LOAD] Failed to load data")
-        print(f"Error: {e}")
+        print(f"{get_timestamp()} [LOAD] Failed to load data. Error : {e}")
+        logging.error(f"[LOAD] Failed to load data. Error: {e}")
         return None
     
 def validate_data(df):
     df = df.withColumn("amount", F.expr("try_cast(amount as double)"))
     df = df.withColumn("product", F.lower(F.trim(df["product"])))
+    df = df.replace(["None", "NULL", "null", "N/A", ""], None)
     clean_rows = df.na.drop()
     bad_rows = df.subtract(clean_rows)
+    print(f"{get_timestamp()} [VALIDATE]  found {bad_rows.count()} bad rows")
+    logging.info(f"[VALIDATE]  found {bad_rows.count()} bad rows")
+    print(f"{get_timestamp()} [VALIDATE]  found {clean_rows.count()} clean rows\n")
+    logging.info(f"[VALIDATE]  found {clean_rows.count()} clean rows")
     return clean_rows, bad_rows
 
 def aggregate_data(clean_rows):
@@ -28,10 +46,14 @@ def aggregate_data(clean_rows):
         F.min("amount").alias("min_amount"),
         F.avg("amount").alias("avg_amount")
     )
+    print(f"{get_timestamp()} [AGGREGATE] Aggregated {final_df.count()} products from {clean_rows.count()} rows\n")
+    logging.info(f"[AGGREGATE] Aggregated {final_df.count()} products from {clean_rows.count()} rows")
     return final_df
 
 def run_pipeline():
+    strat_time = time()
     df = load_data()
+    
     if df is None:
         return
     clean_rows, bad_rows = validate_data(df)
@@ -41,9 +63,16 @@ def run_pipeline():
     print(f"[AGGREGATE] {final_df.count()} products aggregated")
     clean_rows.toPandas().to_csv("clean_data.csv", index=False)
     bad_rows.toPandas().to_csv("bad_data.csv", index=False)
+    end_time = time()
+    execution_time = end_time - strat_time
 
     print(f"[OUTPUT] clean_data.csv : {clean_rows.count()} rows")
     print(f"[OUTPUT] bad_rows.csv : {bad_rows.count()} rows")
+    print(f"{get_timestamp()} [PIPELINE] Completed successfully!")
+    logging.info(f"[PIPELINE] Completed successfully!")
+    print(f"{get_timestamp()} [PIPELINE] Total execution time: {execution_time:.2f} seconds")
+    logging.info(f"[PIPELINE] Total execution time: {execution_time:.2f} seconds")
+
 
     
 

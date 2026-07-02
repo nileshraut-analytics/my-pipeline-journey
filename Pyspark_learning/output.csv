@@ -1,5 +1,7 @@
-product,product_count,total_price,max_amount,min_amount,average_amount
-Keyboard,1,1200.0,1200,1200,1200.0
-Laptop,2,100000.0,50000,50000,50000.0
-Monitor,1,9000.0,9000,9000,9000.0
-Mouse,1,500.0,500,500,500.0
+product,product_count,total_sales,max_amount,min_amount,avg_amount
+apple watch,1,32000.0,32000.0,32000.0,32000.0
+nike shoes,2,9000.0,4500.0,4500.0,4500.0
+iphone 14,2,159998.0,79999.0,79999.0,79999.0
+boat earphones,1,1299.0,1299.0,1299.0,1299.0
+samsung tv,1,45000.0,45000.0,45000.0,45000.0
+levi jeans,2,5998.0,2999.0,2999.0,2999.0

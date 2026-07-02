@@ -1,0 +1,28 @@
+2026-07-02 08:01:42,341 [INFO] NumExpr defaulting to 8 threads.
+2026-07-02 08:01:55,160 [INFO] [LOAD] loaded 5 rows from CSV
+2026-07-02 08:01:55,775 [INFO] Closing down clientserver connection
+2026-07-02 08:06:24,968 [INFO] NumExpr defaulting to 8 threads.
+2026-07-02 08:06:35,370 [INFO] [LOAD] loaded 15 rows from CSV
+2026-07-02 08:06:42,005 [INFO] Closing down clientserver connection
+2026-07-02 08:11:34,752 [INFO] NumExpr defaulting to 8 threads.
+2026-07-02 08:11:45,098 [INFO] [LOAD] loaded 15 rows from CSV
+2026-07-02 08:11:51,032 [INFO] Closing down clientserver connection
+2026-07-02 08:16:08,363 [INFO] NumExpr defaulting to 8 threads.
+2026-07-02 08:16:18,915 [INFO] [LOAD] loaded 15 rows from CSV
+2026-07-02 08:16:25,444 [INFO] Closing down clientserver connection
+2026-07-02 08:23:29,051 [INFO] NumExpr defaulting to 8 threads.
+2026-07-02 08:23:39,520 [INFO] [LOAD] loaded 15 rows from CSV
+2026-07-02 08:23:40,088 [INFO] Closing down clientserver connection
+2026-07-02 08:29:30,458 [INFO] NumExpr defaulting to 8 threads.
+2026-07-02 08:29:40,906 [INFO] [LOAD] loaded 15 rows from CSV
+2026-07-02 08:29:44,589 [INFO] [VALIDATE]  found 6 bad rows
+2026-07-02 08:29:45,055 [INFO] [VALIDATE]  found 9 clean rows
+2026-07-02 08:29:46,772 [INFO] Closing down clientserver connection
+2026-07-02 08:30:40,673 [INFO] NumExpr defaulting to 8 threads.
+2026-07-02 08:30:51,126 [INFO] [LOAD] loaded 15 rows from CSV
+2026-07-02 08:30:54,605 [INFO] [VALIDATE]  found 6 bad rows
+2026-07-02 08:30:55,088 [INFO] [VALIDATE]  found 9 clean rows
+2026-07-02 08:30:57,449 [INFO] [AGGREGATE] Aggregated 6 products from 9 rows
+2026-07-02 08:30:59,424 [INFO] [PIPELINE] Completed successfully!
+2026-07-02 08:30:59,425 [INFO] [PIPELINE] Total execution time: 12.71 seconds
+2026-07-02 08:30:59,450 [INFO] Closing down clientserver connection

@@ -1,0 +1,7 @@
+order_id,product,category,amount,region,date
+1013,boat earphones,Electronics,1299.0,West,
+1006,nike shoes,Footwear,,East,2024-01-18
+1014,,,,,2024-01-22
+1011,apple watch,Electronics,,South,2024-01-21
+1008,,Apparel,1999.0,South,2024-01-19
+1007,samsung tv,Electronics,45000.0,,2024-01-19
