@@ -30,8 +30,8 @@ def load_data():
                 "driver" : "org.postgresql.Driver"
             }
         )
-        print(f"{get_timestamp()} [LOAD] Loaded {df.count()} rows from CSV")
-        logging.info(f"[LOAD] loaded {df.count()} rows from CSV")
+        print(f"{get_timestamp()} [LOAD] Loaded {df.count()} rows from PostgreSQL\n")
+        logging.info(f"[LOAD] loaded {df.count()} rows from PostgreSQL")
         return df
     except Exception as e:
         print(f"{get_timestamp()} [LOAD] Failed to load data. Error : {e}")
@@ -58,12 +58,26 @@ def aggregate_data(clean_rows):
         F.min("amount").alias("min_amount"),
         F.avg("amount").alias("avg_amount")
     )
-    print(f"{get_timestamp()} [AGGREGATE] Aggregated {final_df.count()} products from {clean_rows.count()} rows\n")
+    print(f"{get_timestamp()} [AGGREGATE] Aggregated {final_df.count()} products from {clean_rows.count()} rows")
     logging.info(f"[AGGREGATE] Aggregated {final_df.count()} products from {clean_rows.count()} rows")
     return final_df
 
+def data_quality_report(df, clean_rows, bad_rows, final_df):
+    report = {
+        "total_rows" : df.count(),
+        "clean_rows" : clean_rows.count(),
+        "bad_rows" : bad_rows.count(),
+        "unique_products" : final_df.count()
+    }
+
+    report_df = spark.createDataFrame([report])
+    report_df.toPandas().to_csv("data_quality_report.csv", index=False)
+    print(f"{get_timestamp()} [REPORT] Saved data_quality_report.csv\n")
+    logging.info(f"[REPORT] Saved data_quality_report.csv")
+    return report_df
+
 def run_pipeline():
-    strat_time = time()
+    start_time = time()
     df = load_data()
     
     if df is None:
@@ -72,20 +86,37 @@ def run_pipeline():
     
     final_df = aggregate_data(clean_rows)
     final_df.toPandas().to_csv("output.csv", index=False)
-    print(f"[AGGREGATE] {final_df.count()} products aggregated")
+    try:
+        final_df.write.jdbc(
+            url=f"jdbc:postgresql://{DB_HOST}/{DB_NAME}",
+            table="aggregated_sales",
+            mode="overwrite",
+            properties={
+                "user" : DB_USER,
+                "password" : DB_PASSWORD,
+                "driver" : "org.postgresql.Driver"
+            }
+        )
+        print(f"{get_timestamp()} [DB] Loaded {final_df.count()} rows into aggregated_sales")
+        logging.info(f"[DB] Loaded {final_df.count()} rows into aggregated_sales")
+    except Exception as e:
+        print(f"{get_timestamp()} [DB] Failed to write to PostgreSQL. Error: {e}")
+        logging.error(f"[DB] Failed to write to PostgreSQL. Error: {e}")
+    
     clean_rows.toPandas().to_csv("clean_data.csv", index=False)
     bad_rows.toPandas().to_csv("bad_data.csv", index=False)
+
+    data_quality_report(df, clean_rows, bad_rows, final_df)
+
     end_time = time()
-    execution_time = end_time - strat_time
+    execution_time = end_time - start_time
 
     print(f"[OUTPUT] clean_data.csv : {clean_rows.count()} rows")
-    print(f"[OUTPUT] bad_rows.csv : {bad_rows.count()} rows")
+    print(f"[OUTPUT] bad_rows.csv : {bad_rows.count()} rows\n")
     print(f"{get_timestamp()} [PIPELINE] Completed successfully!")
     logging.info(f"[PIPELINE] Completed successfully!")
     print(f"{get_timestamp()} [PIPELINE] Total execution time: {execution_time:.2f} seconds")
     logging.info(f"[PIPELINE] Total execution time: {execution_time:.2f} seconds")
 
-
-    
 
 run_pipeline()

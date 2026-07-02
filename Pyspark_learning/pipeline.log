@@ -60,3 +60,34 @@
 2026-07-02 22:05:47,071 [INFO] [PIPELINE] Completed successfully!
 2026-07-02 22:05:47,071 [INFO] [PIPELINE] Total execution time: 15.92 seconds
 2026-07-02 22:05:47,098 [INFO] Closing down clientserver connection
+2026-07-03 03:20:03,385 [INFO] NumExpr defaulting to 8 threads.
+2026-07-03 03:20:17,597 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-03 03:20:22,424 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-03 03:20:23,211 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-03 03:20:26,923 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-03 03:20:29,780 [INFO] [PIPELINE] Completed successfully!
+2026-07-03 03:20:29,780 [INFO] [PIPELINE] Total execution time: 17.88 seconds
+2026-07-03 03:20:29,806 [INFO] Closing down clientserver connection
+2026-07-03 03:43:44,620 [INFO] NumExpr defaulting to 8 threads.
+2026-07-03 03:43:50,912 [INFO] Closing down clientserver connection
+2026-07-03 03:44:38,931 [INFO] NumExpr defaulting to 8 threads.
+2026-07-03 03:44:44,993 [INFO] Closing down clientserver connection
+2026-07-03 03:46:11,120 [INFO] NumExpr defaulting to 8 threads.
+2026-07-03 03:46:22,037 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-03 03:46:26,737 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-03 03:46:27,583 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-03 03:46:31,037 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-03 03:46:33,711 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-07-03 03:46:35,651 [INFO] [PIPELINE] Completed successfully!
+2026-07-03 03:46:35,652 [INFO] [PIPELINE] Total execution time: 17.55 seconds
+2026-07-03 03:46:35,699 [INFO] Closing down clientserver connection
+2026-07-03 03:57:32,809 [INFO] NumExpr defaulting to 8 threads.
+2026-07-03 03:57:43,893 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-03 03:57:48,174 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-03 03:57:49,066 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-03 03:57:51,891 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-03 03:57:54,416 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-07-03 03:58:17,513 [INFO] [REPORT] Saved data_quality_report.csv
+2026-07-03 03:58:18,257 [INFO] [PIPELINE] Completed successfully!
+2026-07-03 03:58:18,257 [INFO] [PIPELINE] Total execution time: 38.54 seconds
+2026-07-03 03:58:18,289 [INFO] Closing down clientserver connection
