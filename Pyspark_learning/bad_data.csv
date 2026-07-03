@@ -1,6 +1,6 @@
 order_id,customer_id,product,category,city,quantity,amount,payment_mode,order_date
-ORD0019,CUST3079,dell monitor,Electronics,,4,39210.0,Cash on Delivery,2025-04-19
 ORD0040,CUST9313,,Home,Mumbai,4,25887.0,UPI,2025-01-01
+ORD0019,CUST3079,dell monitor,Electronics,,4,39210.0,Cash on Delivery,2025-04-19
 ORD0036,CUST7256,,Electronics,Mumbai,5,9408.0,Debit Card,2025-01-06
 ORD0052,CUST2890,puma t-shirt,Fashion,Kolkata,5,,Credit Card,2025-02-17
 ORD0031,CUST8693,,Electronics,Pune,5,25410.0,Credit Card,2025-02-20
