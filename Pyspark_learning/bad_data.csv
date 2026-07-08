@@ -1,31 +1,31 @@
 order_id,customer_id,product,category,city,quantity,amount,payment_mode,order_date
-ORD0040,CUST9313,,Home,Mumbai,4,25887.0,UPI,2025-01-01
-ORD0019,CUST3079,dell monitor,Electronics,,4,39210.0,Cash on Delivery,2025-04-19
-ORD0036,CUST7256,,Electronics,Mumbai,5,9408.0,Debit Card,2025-01-06
-ORD0052,CUST2890,puma t-shirt,Fashion,Kolkata,5,,Credit Card,2025-02-17
-ORD0031,CUST8693,,Electronics,Pune,5,25410.0,Credit Card,2025-02-20
-ORD0054,CUST5590,office chair,Furniture,Mumbai,5,,Cash on Delivery,2025-01-07
 ORD0011,CUST5013,boat earbuds,Electronics,,5,3058.0,Net Banking,2025-03-17
-ORD0055,CUST9038,water bottle,Home,Hyderabad,2,,UPI,2025-04-24
-ORD0014,CUST7271,study table,Furniture,,5,16033.0,Debit Card,2025-05-01
-ORD0060,CUST4524,puma t-shirt,Fashion,Delhi,4,,Debit Card,2025-04-06
-ORD0033,CUST5502,,Fashion,Ahmedabad,4,46262.0,UPI,2025-05-08
-ORD0015,CUST4912,study table,Furniture,,3,18995.0,Net Banking,2025-05-22
-ORD0034,CUST6511,,Fashion,Kolkata,1,5369.0,Net Banking,2025-03-01
-ORD0020,CUST2713,nike shoes,Fashion,,1,25510.0,Credit Card,2025-01-20
+ORD0012,CUST1950,study table,Furniture,,3,13940.0,Net Banking,2025-03-20
 ORD0013,CUST5320,puma t-shirt,Fashion,,4,37023.0,UPI,2025-02-27
-ORD0057,CUST5939,samsung galaxy m14,Electronics,Kolkata,1,,Cash on Delivery,2025-03-09
+ORD0014,CUST7271,study table,Furniture,,5,16033.0,Debit Card,2025-05-01
+ORD0015,CUST4912,study table,Furniture,,3,18995.0,Net Banking,2025-05-22
 ORD0016,CUST9072,adidas shoes,Fashion,,2,41453.0,Net Banking,2025-03-20
 ORD0017,CUST5012,hp laptop,Electronics,,3,6174.0,Credit Card,2025-03-30
-ORD0032,CUST5635,,Fashion,Bangalore,2,47024.0,Cash on Delivery,2025-04-12
-ORD0059,CUST3896,study table,Furniture,Mumbai,4,,Debit Card,2025-05-22
-ORD0035,CUST8024,,Furniture,Hyderabad,1,45415.0,UPI,2025-01-30
-ORD0037,CUST7999,,Fashion,Lucknow,3,14075.0,Debit Card,2025-04-04
 ORD0018,CUST7058,iphone 15,Electronics,,2,5951.0,UPI,2025-01-19
-ORD0053,CUST5202,water bottle,Home,Bangalore,2,,UPI,2025-02-07
-ORD0056,CUST9753,water bottle,Home,Lucknow,5,,Cash on Delivery,2025-01-12
-ORD0039,CUST1261,,Electronics,Bangalore,2,23489.0,Debit Card,2025-02-11
+ORD0019,CUST3079,dell monitor,Electronics,,4,39210.0,Cash on Delivery,2025-04-19
+ORD0020,CUST2713,nike shoes,Fashion,,1,25510.0,Credit Card,2025-01-20
+ORD0031,CUST8693,,Electronics,Pune,5,25410.0,Credit Card,2025-02-20
+ORD0032,CUST5635,,Fashion,Bangalore,2,47024.0,Cash on Delivery,2025-04-12
+ORD0033,CUST5502,,Fashion,Ahmedabad,4,46262.0,UPI,2025-05-08
+ORD0034,CUST6511,,Fashion,Kolkata,1,5369.0,Net Banking,2025-03-01
+ORD0035,CUST8024,,Furniture,Hyderabad,1,45415.0,UPI,2025-01-30
+ORD0036,CUST7256,,Electronics,Mumbai,5,9408.0,Debit Card,2025-01-06
+ORD0037,CUST7999,,Fashion,Lucknow,3,14075.0,Debit Card,2025-04-04
 ORD0038,CUST9230,,Home,Chennai,2,6743.0,Cash on Delivery,2025-01-31
-ORD0058,CUST9649,nike shoes,Fashion,Jaipur,4,,Debit Card,2025-03-21
+ORD0039,CUST1261,,Electronics,Bangalore,2,23489.0,Debit Card,2025-02-11
+ORD0040,CUST9313,,Home,Mumbai,4,25887.0,UPI,2025-01-01
 ORD0051,CUST1350,study table,Furniture,Delhi,5,,Credit Card,2025-05-08
-ORD0012,CUST1950,study table,Furniture,,3,13940.0,Net Banking,2025-03-20
+ORD0052,CUST2890,puma t-shirt,Fashion,Kolkata,5,,Credit Card,2025-02-17
+ORD0053,CUST5202,water bottle,Home,Bangalore,2,,UPI,2025-02-07
+ORD0054,CUST5590,office chair,Furniture,Mumbai,5,,Cash on Delivery,2025-01-07
+ORD0055,CUST9038,water bottle,Home,Hyderabad,2,,UPI,2025-04-24
+ORD0056,CUST9753,water bottle,Home,Lucknow,5,,Cash on Delivery,2025-01-12
+ORD0057,CUST5939,samsung galaxy m14,Electronics,Kolkata,1,,Cash on Delivery,2025-03-09
+ORD0058,CUST9649,nike shoes,Fashion,Jaipur,4,,Debit Card,2025-03-21
+ORD0059,CUST3896,study table,Furniture,Mumbai,4,,Debit Card,2025-05-22
+ORD0060,CUST4524,puma t-shirt,Fashion,Delhi,4,,Debit Card,2025-04-06

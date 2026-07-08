@@ -161,3 +161,13 @@
 2026-07-03 20:24:41,361 [INFO] [PIPELINE] Completed successfully!
 2026-07-03 20:24:41,361 [INFO] [PIPELINE] Total execution time: 56.27 seconds
 2026-07-03 20:24:41,418 [INFO] Closing down clientserver connection
+2026-07-08 21:07:02,307 [INFO] NumExpr defaulting to 8 threads.
+2026-07-08 21:07:15,041 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-08 21:07:20,278 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-08 21:07:21,050 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-08 21:07:22,490 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-08 21:07:30,295 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-07-08 21:07:57,086 [INFO] [REPORT] Saved data_quality_report.csv
+2026-07-08 21:07:57,363 [INFO] [PIPELINE] Completed successfully!
+2026-07-08 21:07:57,363 [INFO] [PIPELINE] Total execution time: 47.69 seconds
+2026-07-08 21:07:57,418 [INFO] Closing down clientserver connection
