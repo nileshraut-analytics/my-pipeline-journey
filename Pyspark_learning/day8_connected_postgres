@@ -122,6 +122,9 @@ def run_pipeline():
     logging.info(f"[PIPELINE] Completed successfully!")
     print(f"{get_timestamp()} [PIPELINE] Total execution time: {execution_time:.2f} seconds")
     logging.info(f"[PIPELINE] Total execution time: {execution_time:.2f} seconds")
+    clean_rows.unpersist()
+    bad_rows.unpersist()
+    final_df.unpersist()
 
 
 run_pipeline()
