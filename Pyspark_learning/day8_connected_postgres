@@ -47,14 +47,16 @@ def validate_data(df):
     bad_rows = df.filter(bad_condition)
     clean_rows = df.filter(~bad_condition)
     clean_rows = clean_rows.cache()
+    clean_rows_count = clean_rows.count()
     bad_rows = bad_rows.cache()
-    print(f"{get_timestamp()} [VALIDATE]  found {bad_rows.count()} bad rows")
-    logging.info(f"[VALIDATE]  found {bad_rows.count()} bad rows")
-    print(f"{get_timestamp()} [VALIDATE]  found {clean_rows.count()} clean rows\n")
-    logging.info(f"[VALIDATE]  found {clean_rows.count()} clean rows")
-    return clean_rows, bad_rows
+    bad_rows_count = bad_rows.count()
+    print(f"{get_timestamp()} [VALIDATE]  found {bad_rows_count} bad rows")
+    logging.info(f"[VALIDATE]  found {bad_rows_count} bad rows")
+    print(f"{get_timestamp()} [VALIDATE]  found {clean_rows_count} clean rows\n")
+    logging.info(f"[VALIDATE]  found {clean_rows_count} clean rows")
+    return clean_rows, bad_rows, clean_rows_count, bad_rows_count
 
-def aggregate_data(clean_rows):
+def aggregate_data(clean_rows, clean_rows_count):
     final_df = clean_rows.groupBy("product").agg(
         F.count("product").alias("product_count"),
         F.sum("amount").alias("total_sales"),
@@ -62,17 +64,19 @@ def aggregate_data(clean_rows):
         F.min("amount").alias("min_amount"),
         F.avg("amount").alias("avg_amount")
     )
-    print(f"{get_timestamp()} [AGGREGATE] Aggregated {final_df.count()} products from {clean_rows.count()} rows\n")
-    logging.info(f"[AGGREGATE] Aggregated {final_df.count()} products from {clean_rows.count()} rows")
     final_df.cache()
-    return final_df
+    final_df_count = final_df.count()
+    print(f"{get_timestamp()} [AGGREGATE] Aggregated {final_df_count} products from {clean_rows_count} rows\n")
+    logging.info(f"[AGGREGATE] Aggregated {final_df_count} products from {clean_rows_count} rows")
+    
+    return final_df, final_df_count
 
-def data_quality_report(df, clean_rows, bad_rows, final_df):
+def data_quality_report(df, clean_rows_count, bad_rows_count, final_df_count):
     report = {
         "total_rows" : df.count(),
-        "clean_rows" : clean_rows.count(),
-        "bad_rows" : bad_rows.count(),
-        "unique_products" : final_df.count()
+        "clean_rows" : clean_rows_count,
+        "bad_rows" : bad_rows_count,
+        "unique_products" : final_df_count
     }
 
     report_df = spark.createDataFrame([report])
@@ -87,9 +91,9 @@ def run_pipeline():
     
     if df is None:
         return
-    clean_rows, bad_rows = validate_data(df)
+    clean_rows, bad_rows, clean_rows_count, bad_rows_count = validate_data(df)
     
-    final_df = aggregate_data(clean_rows)
+    final_df, final_df_count = aggregate_data(clean_rows, clean_rows_count)
     final_df.toPandas().to_csv("output.csv", index=False)
     try:
         final_df.write.jdbc(
@@ -102,8 +106,8 @@ def run_pipeline():
                 "driver" : "org.postgresql.Driver"
             }
         )
-        print(f"{get_timestamp()} [DB] Loaded {final_df.count()} rows into aggregated_sales\n")
-        logging.info(f"[DB] Loaded {final_df.count()} rows into aggregated_sales")
+        print(f"{get_timestamp()} [DB] Loaded {final_df_count} rows into aggregated_sales\n")
+        logging.info(f"[DB] Loaded {final_df_count} rows into aggregated_sales")
     except Exception as e:
         print(f"{get_timestamp()} [DB] Failed to write to PostgreSQL. Error: {e}")
         logging.error(f"[DB] Failed to write to PostgreSQL. Error: {e}")
@@ -111,13 +115,13 @@ def run_pipeline():
     clean_rows.toPandas().to_csv("clean_data.csv", index=False)
     bad_rows.toPandas().to_csv("bad_data.csv", index=False)
 
-    data_quality_report(df, clean_rows, bad_rows, final_df)
+    data_quality_report(df, clean_rows_count, bad_rows_count, final_df_count)
 
     end_time = time()
     execution_time = end_time - start_time
 
-    print(f"[OUTPUT] clean_data.csv : {clean_rows.count()} rows")
-    print(f"[OUTPUT] bad_rows.csv : {bad_rows.count()} rows\n")
+    print(f"[OUTPUT] clean_data.csv : {clean_rows_count} rows")
+    print(f"[OUTPUT] bad_rows.csv : {bad_rows_count} rows\n")
     print(f"{get_timestamp()} [PIPELINE] Completed successfully!")
     logging.info(f"[PIPELINE] Completed successfully!")
     print(f"{get_timestamp()} [PIPELINE] Total execution time: {execution_time:.2f} seconds")

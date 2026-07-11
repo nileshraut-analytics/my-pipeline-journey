@@ -181,3 +181,45 @@
 2026-07-09 20:21:01,503 [INFO] [PIPELINE] Completed successfully!
 2026-07-09 20:21:01,504 [INFO] [PIPELINE] Total execution time: 51.24 seconds
 2026-07-09 20:21:01,613 [INFO] Closing down clientserver connection
+2026-07-11 07:49:39,574 [INFO] NumExpr defaulting to 8 threads.
+2026-07-11 07:49:50,673 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-11 07:49:56,024 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-11 07:49:56,025 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-11 07:49:57,642 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-11 07:50:05,434 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-07-11 07:50:29,431 [INFO] [REPORT] Saved data_quality_report.csv
+2026-07-11 07:50:29,648 [INFO] [PIPELINE] Completed successfully!
+2026-07-11 07:50:29,648 [INFO] [PIPELINE] Total execution time: 43.60 seconds
+2026-07-11 07:50:29,708 [INFO] Closing down clientserver connection
+2026-07-11 07:54:19,197 [INFO] NumExpr defaulting to 8 threads.
+2026-07-11 07:54:28,458 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-11 07:54:33,205 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-11 07:54:33,205 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-11 07:54:41,899 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-11 07:54:50,907 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-07-11 07:55:16,426 [INFO] [REPORT] Saved data_quality_report.csv
+2026-07-11 07:55:16,637 [INFO] [PIPELINE] Completed successfully!
+2026-07-11 07:55:16,638 [INFO] [PIPELINE] Total execution time: 51.97 seconds
+2026-07-11 07:55:16,705 [INFO] Closing down clientserver connection
+2026-07-11 08:01:28,060 [INFO] NumExpr defaulting to 8 threads.
+2026-07-11 08:01:39,204 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-11 08:01:44,247 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-11 08:01:44,248 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-11 08:01:44,326 [INFO] Closing down clientserver connection
+2026-07-11 08:28:44,038 [INFO] NumExpr defaulting to 8 threads.
+2026-07-11 08:28:56,802 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-11 08:29:01,946 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-11 08:29:01,947 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-11 08:29:06,053 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-11 08:29:08,570 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-07-11 08:29:09,271 [INFO] Closing down clientserver connection
+2026-07-11 08:32:22,281 [INFO] NumExpr defaulting to 8 threads.
+2026-07-11 08:32:32,967 [INFO] [LOAD] loaded 500 rows from PostgreSQL
+2026-07-11 08:32:37,706 [INFO] [VALIDATE]  found 30 bad rows
+2026-07-11 08:32:37,707 [INFO] [VALIDATE]  found 470 clean rows
+2026-07-11 08:32:41,925 [INFO] [AGGREGATE] Aggregated 12 products from 470 rows
+2026-07-11 08:32:44,417 [INFO] [DB] Loaded 12 rows into aggregated_sales
+2026-07-11 08:33:10,687 [INFO] [REPORT] Saved data_quality_report.csv
+2026-07-11 08:33:10,688 [INFO] [PIPELINE] Completed successfully!
+2026-07-11 08:33:10,689 [INFO] [PIPELINE] Total execution time: 42.64 seconds
+2026-07-11 08:33:10,785 [INFO] Closing down clientserver connection
