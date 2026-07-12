@@ -249,6 +249,8 @@ This repository documents the continuous evolution of a single ETL pipeline rath
 
 The objective has been to improve one pipeline step by step while introducing concepts commonly found in real-world data engineering workflows.
 
+📄 See [CHANGELOG.md](CHANGELOG.md) for a detailed, dated history of fixes and changes made to this pipeline.
+
 ---
 
 # ⚙️ Core Modules
