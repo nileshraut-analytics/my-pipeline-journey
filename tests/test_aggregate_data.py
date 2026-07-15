@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "Pyspark_learni
 
 import pytest
 from pyspark.sql import SparkSession
-from day8_connected_postgres import aggregate_data
+from day8_connected_postgres import aggregate_data, validate_data
 
 
 @pytest.fixture(scope="module")
@@ -43,3 +43,18 @@ def test_aggregate_data_basic(spark):
 
     # 2 unique products
     assert final_df_count == 2
+
+
+def test_validate_data_basic(spark):
+    data = [
+        ("Mango", "78"),
+        ("Apple", "97"),
+        ("", "120"),
+        ("Banana", "abc")
+    ]
+    df = spark.createDataFrame(data, ["product", "amount"])
+
+    clean_rows, bad_rows, clean_rows_count, bad_rows_count = validate_data(df)
+
+    assert clean_rows_count == 2
+    assert bad_rows_count == 2
